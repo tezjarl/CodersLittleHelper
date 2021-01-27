@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -16,6 +12,12 @@ namespace CodeRunnerService
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) => { services.AddHostedService<Worker>(); });
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.Configure<AppConfig>(hostContext.Configuration.GetSection("appConfig"));
+                    services.AddHostedService<Worker>();
+                });
     }
+
+    public record AppConfig(string pathToResult, string runtimeConfigName, string containerPrefix);
 }
