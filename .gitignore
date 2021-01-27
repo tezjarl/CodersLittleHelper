@@ -1,0 +1,6 @@
+/.idea/*/**
+/src/.idea/*/**
+/src/CodeRunnerService/.idea/*/**
+/src/CodeRunnerService/CodeRunnerWebApi/bin/
+/src/CodeRunnerService/CodeRunnerWebApi/obj/
+/src/CodeRunnerService/CodeRunnerWebApi/Properties/

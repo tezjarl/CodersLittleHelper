@@ -1,21 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <UserSecretsId>dotnet-CodeRunnerService-AEC6CCE7-8153-4A33-9811-3AAA1AE04D85</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Hangfire" Version="1.7.19" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" NoWarn="NU1605" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-        <PackageReference Include="System.Text.Json" Version="5.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Assets\Dockerfile" />
+      <Folder Include="Controllers" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Content Include="Assets\Dockerfile">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
+
 </Project>
